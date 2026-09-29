@@ -1,0 +1,86 @@
+# Dépendances Node.js
+node_modules/
+jspm_packages/
+bower_components/
+web_modules/
+
+# Fichiers de logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Rapports et profils Node.js
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+*.cpuprofile
+*.heapprofile
+
+# Données d'exécution
+pids/
+*.pid
+*.pid.lock
+*.seed
+
+# Couverture de tests Vitest / Istanbul / nyc
+coverage/
+*.lcov
+.nyc_output/
+lib-cov/
+
+# Fichiers et caches de compilation TypeScript
+*.tsbuildinfo
+
+# Sorties de build Vite
+dist/
+dist-ssr/
+.vite/
+
+# Caches et fichiers temporaires
+.cache/
+.parcel-cache/
+.vite-node/
+.vitest/
+.turbo/
+.pnpm-store/
+.npm/
+.eslintcache
+.stylelintcache
+.node_repl_history
+
+# Variables d'environnement secrètes
+.env
+.env.*
+!.env.example
+
+# Archives créées par npm pack
+*.tgz
+
+# IDE et éditeurs
+.vscode/*
+!.vscode/extensions.json
+.vscode-test/
+.idea/
+.zed/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Système d'exploitation
+.DS_Store
+
+# Données Yarn modernes
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Fichiers locaux propres à la machine
+*.local
