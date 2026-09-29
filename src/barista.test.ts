@@ -4,61 +4,61 @@ import { Ingredient } from "./barista";
 import { Barista } from "./barista";
 
 describe("Coffee", () => {
-  it("crée un café avec un nom et un prix", () => {
-    const coffee = new Coffee("Cappuccino", 4);
+	it("crée un café avec un nom et un prix", () => {
+		const coffee = new Coffee("Cappuccino", 4);
 
-    expect(coffee.name).toBe("Cappuccino");
-    expect(coffee.price).toBe(4);
-  });
-
-  it("ajoute un ingrédient à la recette", () => {
-	const coffee = new Coffee("Cappuccino", 4);
-
-	coffee.addIngredient("lait", 4);
-
-	expect(coffee.ingredients).toHaveLength(1);
-	expect(coffee.ingredients[0]).toEqual({
-		name: "lait",
-		quantity: 4
+		expect(coffee.name).toBe("Cappuccino");
+		expect(coffee.price).toBe(4);
 	});
-	expect(coffee.ingredients[0]).not.toEqual({
-		name: "café",
-		quantity: 3
+
+	it("ajoute un ingrédient à la recette", () => {
+		const coffee = new Coffee("Cappuccino", 4);
+
+		coffee.addIngredient("lait", 4);
+
+		expect(coffee.ingredients).toHaveLength(1);
+		expect(coffee.ingredients[0]).toEqual({
+			name: "lait",
+			quantity: 4
+		});
+		
+		expect(coffee.ingredients[0]).not.toEqual({
+			name: "café",
+			quantity: 3
+		});
 	});
-  });
 });
 
 describe("Ingredient", () => {
-  it("ajoute une quantité au stock", () => {
-	const ingredient = new Ingredient("cacao", 10);
-	
-	ingredient.addQuantity(5);
-	
-	expect(ingredient.quantity).not.toBe(10);
-	expect(ingredient.quantity).toEqual(15);
+	it("ajoute une quantité au stock", () => {
+		const ingredient = new Ingredient("cacao", 10);
+		
+		ingredient.addQuantity(5);
+		
+		expect(ingredient.quantity).not.toBe(10);
+		expect(ingredient.quantity).toEqual(15);
 
-  });
+	});
 
-  it("retire une quantité du stock", () => {
-	const ingredient = new Ingredient("cacao", 10);
+	it("retire une quantité du stock", () => {
+		const ingredient = new Ingredient("cacao", 10);
 
-	ingredient.removeQuantity(1);
+		ingredient.removeQuantity(1);
 
-	expect(ingredient.quantity).toBeLessThan(10);
-	
-  });
+		expect(ingredient.quantity).toBeLessThan(10);
+		
+	});
 
-  it("refuse de retirer une quantité supérieure au stock", () => {
-	const ingredient = new Ingredient("cacao", 10);
+	it("refuse de retirer une quantité supérieure au stock", () => {
+		const ingredient = new Ingredient("cacao", 10);
 
-	const removedQuantity = ingredient.removeQuantity(20);
+		const removedQuantity = ingredient.removeQuantity(20);
 
-	expect(removedQuantity).toBeFalsy();
-	expect(removedQuantity).toBe(false);
+		expect(removedQuantity).toBeFalsy();
+		expect(removedQuantity).toBe(false);
 
-	expect(ingredient.quantity).toEqual(10);
-
-  });
+		expect(ingredient.quantity).toEqual(10);
+	});
 });
 
 describe("Barista", () => {
@@ -68,9 +68,8 @@ describe("Barista", () => {
 
 		barista.addCoffee(coffee);
 
-		// vérifier si il y a bien un café dans le liste des cafés
 		expect(barista.coffees).toHaveLength(1);
-		expect(barista.coffees[0].name).toContain("Expresso");
+		expect(barista.coffees).toContain(coffee);
 	});
 
 	it("retourne undefined lorsqu'un café n'existe pas", () => {
@@ -82,6 +81,7 @@ describe("Barista", () => {
 		
 		expect(barista.coffees).toHaveLength(1);
 		expect(getCoffee).toBe(undefined);
+		expect(getCoffee).toBeUndefined();
 	});
 
 	it("peut préparer un café lorsque tous les ingrédients sont disponibles", () => {
